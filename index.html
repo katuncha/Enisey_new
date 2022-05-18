@@ -326,7 +326,7 @@
               non-standard tasks in particular.</p>
           </li>
         </ul>
-        <div class="arrows features__arrows">
+        <div class="arrows reviews__arrows">
           <button class="arrows__item arrows__item--prev" type="button" aria-label="previous slide">
             <span class="visually-hidden">Prev</span>
             <svg class="icon features__icon features__icon--left">
@@ -398,6 +398,44 @@
     </div>
   </section>
 
+  <section class="popup" id="popup">
+    <div class="popup__body">
+      <div class="popup__content">
+        <a href="" class="popup__close">
+          <svg class="popup__icon">
+            <use xlink:href="img/sprite.svg#close"></use>
+          </svg>
+        </a>
+        <p class="popup__title">
+          Отлично!
+        </p>
+        <p class="popup__text">
+          Скоро мы с вами свяжемся.
+        </p>
+        <button class="button" type="submit">Хорошо</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="popup popup--arrow" id="popup--arrow">
+    <div class="popup__body">
+      <div class="popup__content">
+        <a href="" class="popup__close">
+          <svg class="popup__icon">
+            <use xlink:href="img/sprite.svg#close"></use>
+          </svg>
+        </a>
+        <p class="popup__title">
+          Что-то пошло не так
+        </p>
+        <p class="popup__text">
+          Попробуйте, пожалуйста, ещё раз.
+        </p>
+        <button class="button popup__button" type="submit">Хорошо</button>
+      </div>
+    </div>
+  </section> -->
+
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/script.js"></script>
@@ -427,6 +465,50 @@
                });
            });
        });
+
+            // Отправка заявки 
+      // $(document).ready(function() {
+      //   $('#form').submit(function() { // проверка на пустоту заполненных полей. Атрибут html5 — required не подходит (не поддерживается Safari)
+      //     if (document.form.name.value == '' || document.form.phone.value == '' ) {
+      //       valid = false;
+      //       return valid;
+      //     }
+      //     $.ajax({
+      //       type: "POST",
+      //       url: "mail.php",
+      //       data: $(this).serialize()
+      //     }).done(function() {
+      //       $('.js-overlay-thank-you').fadeIn();
+      //       $(this).find('input').val('');
+      //       $('#form').trigger('reset');
+      //     });
+      //     return false;
+      //   });
+      // });
+
+      Закрыть попап 
+
+      $('.popup__button').click(function() { // по клику на крестик
+        $('.popup').fadeOut();
+      });
+
+      $('.popup__close').click(function() { // по клику на крестик
+        $('.popup').fadeOut();
+      });
+
+      $(document).mouseup(function (e) { // по клику вне попапа
+          var popup = $('.popup__body');
+          if (e.target!=popup[0]&&popup.has(e.target).length === 0){
+              $('.popup').fadeOut();
+          }
+      });
+
+      // // Маска ввода номера телефона (плагин maskedinput)
+      // $(function($){
+      //   $('[name="phone"]').mask("+7(999) 999-9999");
+      // });
+
+
   </script> 
   
 </body>

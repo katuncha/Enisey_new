@@ -63,7 +63,7 @@ if(getCookieName == 'EniseyConsulting') {
 }
 
 
-//disabled button in form
+disabled button in form
 
 let tel = document.getElementById('form_tel');
 let formBtn = document.getElementById('button_contacts');
@@ -72,7 +72,7 @@ formBtn.setAttribute('disabled', true);
 
 tel.oninput = function(tel){
   let length = this.value.length
-  if (length <=16 && length >= 11){
+  if (length < 10){
     formBtn.removeAttribute('disabled');
   }else{
     formBtn.setAttribute('disabled', true);
