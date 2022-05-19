@@ -63,7 +63,7 @@ if(getCookieName == 'EniseyConsulting') {
 }
 
 
-disabled button in form
+/* disabled button in form */
 
 let tel = document.getElementById('form_tel');
 let formBtn = document.getElementById('button_contacts');

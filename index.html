@@ -442,11 +442,18 @@
   <script>
     $(document).ready(function(){
            $('#button_contacts').click(function(){
-               var form_name   = $('#form_name').val();
-               var form_email   = $('#form_email').val();
-               var form_tel   = $('#form_tel').val();
-               var form_company   = $('#form_company').val();
-               var form_message = $('#form_message').val();
+               let form_name   = $('#form_name').val();
+               let form_email   = $('#form_email').val();
+               let form_tel   = $('#form_tel').val();
+               let form_company   = $('#form_company').val();
+               let form_message = $('#form_message').val();
+               let regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+               if(!regex.test(form_tel){
+                console.log('Не соответствует');
+                }else{
+                console.log('Соответствует');
+                }
+
                $.ajax({
                    url: "post.php", 
                    type: "post", 
@@ -460,7 +467,7 @@
                        "lang": "en",
                    },
                    success: function(data){
-                       $('.messages').html(data.result); 
+                       $('.popup').fadeIn();
                    }
                });
            });
@@ -486,9 +493,9 @@
       //   });
       // });
 
-      Закрыть попап 
+      //Закрыть попап 
 
-      $('.popup__button').click(function() { // по клику на крестик
+      $('.popup__button').click(function() { // по клику на кнопку
         $('.popup').fadeOut();
       });
 
